@@ -15,7 +15,7 @@ int main () {
     struct binary_tree_avl* AVL = create_empty_binary_tree_avl();
     struct binary_tree* ABB = create_empty_binary_tree();
 
-    int i;
+    int i, op;
     int quantValuesToAdd, intervalToSearch;
 
     printf("Adicionar quantos valores: ");
@@ -50,7 +50,12 @@ int main () {
         avlArray[j] = comparisons;
     }
 
-    quick_sort(avlArray, arrSize);
+    printf("\nDeseja ordenar?: ");
+    scanf("%d", &op);
+
+    if (op == 1) {
+        quick_sort(avlArray, arrSize);
+    }
 
     for (i = 0; i < arrSize; ++i) {
         fprintf(avlValues, "%d\n", avlArray[i]);
@@ -85,24 +90,33 @@ FILE* open_file(char* path, char* mode) {
     return f;
 }
 
-void quick_sort(int *v, int size) {
+void swap(int *a, int *b) {
+    int aux;
+    aux = *a;
+    *a = *b;
+    *b = aux;
+}
 
+void quick_sort(int *v, int size) {
     if (size <= 1) {
         return;
     } else {
-        int pivot = v[size / 2];
+        int pivot = v[size/2];
         int a = 0;
         int b = size - 1;
+
         while (a < b) {
-            while (v[a] < pivot) a++;
-            while (v[b] > pivot) b--;
+            while(v[a] < pivot) a++;
+            while(v[b] > pivot) b--;
+
             if (a < b) {
-                int aux = v[a];
-                v[a] = v[b];
-                v[b] = aux;
-                ++a;
+                swap(&v[a], &v[b]);
+                if (v[a] == v[b]) {
+                    a++;
+                }
             }
         }
+
         quick_sort(v, b);
         quick_sort(v+a, size - a);
     }
