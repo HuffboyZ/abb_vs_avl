@@ -17,3 +17,9 @@ lines(AVL, type = "l", lwd = 4, col="black")
 
 title(main = "ABB x AVL", font.main=1)
 
+legend("topright", c("ABBs","ABB", "AVL"), cex=0.8, 
+       col=c("blue","red", "black"), pch=21:21, lty=1:1) 
+legend("topleft", c("Max ABB","Max AVL", "Min ABB",
+                    "Min AVL", max(abby), max(avly),
+                    min(abby), min(avly)),
+       cex=0.8, ncol = 2, text.width = 600)

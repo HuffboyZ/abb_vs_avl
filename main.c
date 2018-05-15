@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "headers/abb.h"
 #include "headers/avl.h"
 
@@ -54,7 +55,7 @@ int main () {
 
 	free(array);
 
-	fprintf(f, "ABBs ABB AVL\n");
+	fprintf(data, "ABBs ABB AVL\n");
 	// Header
 
 	int compareABB_sorted = 0;
@@ -72,7 +73,7 @@ int main () {
 		search_avl(AVL, num, &compareAVL);
 		// Do the search on all the 3 trees get how many comparisons was done in each one.
 
-		fprintf(f, "%d %d %d\n", compareABB_sorted, compareABB, compareAVL);
+		fprintf(data, "%d %d %d\n", compareABB_sorted, compareABB, compareAVL);
 		// Print all of them in the file.
 
 		printf("Comparisons (ABBsorted|ABB|AVL): (%d|%d|%d), Number %d\n", compareABB_sorted, compareABB, compareAVL, num);
@@ -82,7 +83,7 @@ int main () {
 		compareAVL = 0;
 	}
 
-	fclose(f);
+	fclose(data);
 	AVL = clear_avl(AVL);
 	ABB = clear(ABB);
 	ABB_sorted = clear(ABB_sorted);
