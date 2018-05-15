@@ -24,10 +24,15 @@ int main () {
 	struct binary_tree* ABB_sorted = create_empty_binary_tree();
 
 	int num, i, j;
-	int items = 1000;   
+
+	printf("Numero de items a serem inseridos: ");
+	int items;
+	scanf("%d", &items);
 	// Number of items that will be added on the trees.
 
-	int searchs = 1000;   
+	printf("Digite o numero de buscas: ");
+	int searchs;
+	scanf("%d", &searchs);
 	// Number of tests (searchs) that will be done with random numbers (can repeat).
 
 	srand(time(NULL));
