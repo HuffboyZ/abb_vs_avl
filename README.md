@@ -14,5 +14,4 @@ A simple trie data structure implementation in C language.
 ### Como usar?
   1. Executar o main.exe para gerar nossos dados
   2. Abrir o script plot.R para realizar a plotagem dos gráficos
-  3. Com o script aberto, atualizar o valor de "yBound" para a quantidade de numeros inseridos
-  4. CTRL+A & CTRL+ENTER (Para rodar o script todo)
+  3. CTRL+A & CTRL+ENTER (Para rodar o script todo)
