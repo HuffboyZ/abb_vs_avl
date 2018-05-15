@@ -1,14 +1,19 @@
-abb <- file("abb.txt", open = "r")
-abbLines <- readLines(abb)
-close(abb)
+data <- read.table(file.choose(), header=T, sep=" ")
 
-avl <- file("./avl.txt", open = "r")
-avlLines <- readLines(avl)
-close(avl)
+ABBs <- data$ABBs
+ABB <- data$ABB
+AVL <- data$AVL
 
-yBound <- c(100)
 
-plot(avlLines, type = "o", ylab = "Comparações", col = "blue", ann = FALSE, ylim = c(0, yBound))
-lines(abbLines, type="o", col="red")
+ABBs <- sort(ABBs)
+ABB <- sort(ABB)
+AVL <- sort(AVL)
+
+yBound <- c(300)
+
+plot(ABBs, type = "l", lwd = 4, ylab = "Comparações", col = "blue", ann = FALSE, ylim = c(0, yBound))
+lines(ABB, type = "l", lwd = 4, col="red")
+lines(AVL, type = "l", lwd = 4, col="black")
 
 title(main = "ABB x AVL", font.main=1)
+
